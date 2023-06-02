@@ -20,6 +20,29 @@ class ActionProvider {
         this.stateRef = stateRef;
         this.createCustomMessage = createCustomMessage;
     }
+
+    greet() {
+        const greetingMessage = this.createChatBotMessage("Hi, friend.");
+        this.updateChatbotState(greetingMessage);
+    }
+
+    handleJavascriptList = () => {
+        const message = this.createChatBotMessage(
+            "Fantastic, I've got the following resources for you on Javascript:",
+            {
+                widget: "javascriptLinks",
+            }
+        );
+
+        this.updateChatbotState(message);
+    };
+
+    updateChatbotState(message: any) {
+        this.setState((prevState: any) => ({
+            ...prevState,
+            messages: [...prevState.messages, message]
+        }));
+    }
 }
 
 export default ActionProvider;
