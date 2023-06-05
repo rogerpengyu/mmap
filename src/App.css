@@ -25,10 +25,10 @@
   color: #61dafb;
 }
 
-/* .react-chatbot-kit-chat-container {
+.react-chatbot-kit-chat-container {
   position: relative;
   width: 80%;
-} */
+}
 
 @keyframes App-logo-spin {
   from {
