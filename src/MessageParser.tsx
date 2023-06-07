@@ -18,6 +18,8 @@ class MessageParser {
         if (lowerCaseMessage.includes("javascript")) {
             this.actionProvider.handleJavascriptList();
         }
+
+        this.actionProvider.reply(message);
     }
 }
 

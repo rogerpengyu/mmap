@@ -1,3 +1,30 @@
+async function fetchText(message: any) {
+    const url = "https://mmapfunc.azurewebsites.net/api/mmfunc";
+    const data = {
+        input_data: {
+            columns: [0], index: [0], data: ["aaa"]
+        }
+    };
+
+    const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data = await response.text();
+        return data;
+    }
+}
+
+
 // ActionProvider starter code
 class ActionProvider {
     createChatBotMessage: any;
@@ -42,6 +69,16 @@ class ActionProvider {
             ...prevState,
             messages: [...prevState.messages, message]
         }));
+    }
+
+    reply(message: any) {
+        fetchText(message).then(response => {
+            const cm = this.createChatBotMessage(response);
+
+            this.updateChatbotState(cm);
+        }, error => {
+            console.log(error);
+        });
     }
 }
 
