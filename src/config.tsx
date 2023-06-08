@@ -7,7 +7,6 @@ import IConfig from "react-chatbot-kit/build/src/interfaces/IConfig";
 const config: IConfig = {
   botName: "LearningBot",
   initialMessages: [createChatBotMessage("Hi, I'm here to help. What do you want to learn?", {
-    widget: "learningOptions",
   })],
   // customStyles: {
   //   botMessageBox: {
