@@ -6,7 +6,7 @@ import ActionProvider from './ActionProvider';
 import './App.css';
 
 
-import { Checkbox, CheckboxProps, FluentProvider, webLightTheme } from "@fluentui/react-components";
+import { Checkbox, FluentProvider, webLightTheme } from "@fluentui/react-components";
 
 function App() {
   return (
