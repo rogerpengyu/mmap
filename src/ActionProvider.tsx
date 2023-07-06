@@ -1,7 +1,8 @@
 async function fetchText(message: any) {
     const url = "https://mmapfunc.azurewebsites.net/api/mmfunc";
     const data = {
-        input: message
+        chat_history: [],
+        question: message
     };
 
     const response = await fetch(url, {
@@ -18,7 +19,7 @@ async function fetchText(message: any) {
 
     if (response.status === 200) {
         let data = await response.json();
-        return data.output;
+        return data.answer;
     }
 }
 
