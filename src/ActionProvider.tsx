@@ -1,3 +1,4 @@
+// this is the main function
 async function fetchText(message: any) {
     const url = "https://mmapfunc.azurewebsites.net/api/mmfunc";
     const data = {
